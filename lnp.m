@@ -1,4 +1,4 @@
-function [spikeTrain,stimulus,nonlinearOutput] = lnp(time,resolution,point,slope,variance,binLength,stimulusType,plots)
+function [spikeTrain,stimulus,nonlinearOutput] = lnp(filteredInput,binLength,gain,threshold,peakFiringRate,plots)
 % lnp is a linear-nonlinear-poisson cascade model used to model retinal ganglion neurons
 % INPUTS: time (duration of output), resolution (length of linear filter),
 % point (threshold), slope (slope of threshold), variance, binLength, stimulusType (0,1,or vector), plots 
@@ -6,10 +6,11 @@ function [spikeTrain,stimulus,nonlinearOutput] = lnp(time,resolution,point,slope
 
 %time = 1000; % ms
 %resolution = 32;
-%point = .5*10e4;
-%slope = 2;
 %binLength = 1;
-discount = 0.001;
+discount       = 0.001;
+threshold      = 1;
+gain           = 2;
+peakFiringRate = 1;
 
 % create the linear filter
 kernel = linearKernel(1,-0.5,1,resolution); % inputs: freq, phase, var, resolution
@@ -39,7 +40,7 @@ end
 linearOutput = conv(stimulus,kernel,'same'); % should this be 'full' to maintain causality, and then snip the end?
 
 % pass the linear filter's output through the nonlinearity/threshold
-nonlinearOutput = threshold(linearOutput,point,slope);
+nonlinearOutput = sigmoid(linearOutput,'gain',gain,'threshold',threshold,'maximum',peakFiringRate);
 nonlinearOutput = col(nonlinearOutput);
 
 % use poisson probability of spiking to generate a spike train
