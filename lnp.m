@@ -1,61 +1,41 @@
-function [spikeTrain,stimulus,nonlinearOutput] = lnp(filteredInput,binLength,gain,threshold,peakFiringRate,plots)
+function [spikeTrain,nonlinearOutput] = lnp(input, varargin)
 % lnp is a linear-nonlinear-poisson cascade model used to model retinal ganglion neurons
 % INPUTS: time (duration of output), resolution (length of linear filter),
 % point (threshold), slope (slope of threshold), variance, binLength, stimulusType (0,1,or vector), plots 
 % OUTPUTS: spikeTrain, stimulus, nonlinearOutput
 
-%time = 1000; % ms
-%resolution = 32;
-%binLength = 1;
-discount       = 0.001;
-threshold      = 1;
-gain           = 2;
-peakFiringRate = 1;
+p = inputParser;
+addRequired(p, 'input',@isnumeric);
+addParamValue(p, 'binLength',0.5,@isnumeric);
+addParamValue(p, 'gain',1,@isnumeric);
+addParamValue(p, 'threshold',1,@isnumeric);
+addParamValue(p, 'peakFiringRate',1,@isnumeric);
+addParamValue(p, 'plots',1,@isnumeric);
+parse(p, input, varargin{:});
 
 % create the linear filter
-kernel = linearKernel(1,-0.5,1,resolution); % inputs: freq, phase, var, resolution
-
-% create the stimulus
-%variance = .1;
-meanStim = 0;
-if stimulusType == 0
-    stimulus = sqrt(variance)*randn(time/binLength,1) + meanStim;
-elseif stimulusType == 1
-    load pinknoise;
-    allowedStart = length(x) - (time/binLength + 1);
-    startFrame = ceil(allowedStart*rand(1));
-    x(1:startFrame)=[];
-    x((time/binLength)+1:end)=[];
-
-    Xstd = std(x);
-    stimulus = x.*sqrt(variance)/Xstd;
-    stimulus = stimulus - mean(stimulus) + meanStim;
-    %stimulus = wiener(mean,0,sqrt(variance),time,0); % random walk stimulus
-    % starting pt, drift, standard deviation of samples at time t = 1, how long, figures?
-else
-    stimulus = stimulusType;
-end
+kernel = linearKernel(1,-0.5,1,30); % inputs: freq, phase, var, resolution
 
 % pass the stimulus through the linear filter
-linearOutput = conv(stimulus,kernel,'same'); % should this be 'full' to maintain causality, and then snip the end?
+linearOutput = conv(p.Results.input,kernel,'same'); % should this be 'full' to maintain causality, and then snip the end?
 
 % pass the linear filter's output through the nonlinearity/threshold
-nonlinearOutput = sigmoid(linearOutput,'gain',gain,'threshold',threshold,'maximum',peakFiringRate);
+nonlinearOutput = sigmoid(linearOutput,'gain',p.Results.gain,'threshold',p.Results.threshold,'maximum',p.Results.peakFiringRate);
 nonlinearOutput = col(nonlinearOutput);
 
 % use poisson probability of spiking to generate a spike train
-spikeTrain = poissrnd(binLength*nonlinearOutput*discount);
-moreSpikes = find(spikeTrain>1);
-spikeTrain(moreSpikes) = 1;
+spikeTrain = poissrnd(p.Results.binLength*nonlinearOutput);
+%moreSpikes = find(spikeTrain>1);
+%spikeTrain(moreSpikes) = 1;
 
 ts = 0:length(spikeTrain)-1;
 spikes = ts(find(spikeTrain));
 
-if plots ~= 0
-    figure; subplot(4,1,1), plot(stimulus), title('Stimulus'),
+if p.Results.plots ~= 0
+    figure; subplot(4,1,1), plot(p.Results.input), title('Stimulus'),
     subplot(4,1,2), plot(linearOutput), title('Linear Output'),
     subplot(4,1,3), plot(nonlinearOutput), title('Nonlinear Output'),
-    subplot(4,1,4), axis([0,time/binLength,0,1]), ...
+    subplot(4,1,4), ...
         for i = 1:length(spikes)
             line([spikes(i),spikes(i)],[0,1],'Color','k');
         end
