@@ -23,6 +23,7 @@ r = -10:0.01:10;
 N = K./(1+exp(-gain*(r-theta)));
 %plot(r,N)
 %keyboard
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %Calculation of mutual information, I = H(n) - H(n|rho)
 
