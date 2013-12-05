@@ -1,11 +1,11 @@
 function mov = pinkST()
 
 d = 250;
-T = 100;
-fig = 0;
+T = 500;
+fig = 1;
 
 % parameters
-v = 0.1;
+v = 0.01;
 
 % create the filter
 %time = linspace(0,0.1,1);
