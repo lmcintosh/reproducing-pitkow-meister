@@ -11,7 +11,8 @@ F = rand(d,d,T);
 [xm, ym] = meshgrid(linspace(-1,1,d));
 
 % generate 1/f shape
-mask = repmat(1./(sqrt(xm.^2 + ym.^2) + 1e-3), 1, 1, T);
+mask = repmat(1./(sqrt(xm.^2 + ym.^2) + 1e-3), 1, T);
+mask = reshape(mask, size(mask,1), size(mask,1), T);
     
 % modulate fourier coefficients
 Fmod = abs(F).*mask.*exp(2*pi*1i*rand(d,d,T));
