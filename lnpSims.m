@@ -58,8 +58,9 @@ for i = 1:length(thetaVec)
             end
 
             [spikes, nonlinearOutput] = lnp(oneDinput, 'gain', gainVec(j), 'threshold', thetaVec(i), 'peakFiringRate', 1.1, 'plots', 0); 
-            [~, I(i,j,n)]             = muti(spikes,oneDinput);
+            [~, I(i,j,n)]             = muti(spikes,oneDinput,2,2);
             numSpikes(i,j,n)          = sum(spikes);
+        end
     end
 end
 
