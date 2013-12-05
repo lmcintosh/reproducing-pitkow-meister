@@ -14,6 +14,7 @@ addParamValue(p, 'plots',1,@isnumeric);
 parse(p, input, varargin{:});
 
 % create the linear filter
+% 1, -0.5, 1, 30 are parameters for a biphasic ON cell
 kernel = linearKernel(1,-0.5,1,30); % inputs: freq, phase, var, resolution
 
 % pass the stimulus through the linear filter

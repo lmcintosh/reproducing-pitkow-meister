@@ -1,4 +1,4 @@
-function [p, h, Mut_Info] = muti(a,b,binsA,binsB) %returning HA
+function [h, Mut_Info] = muti(a,b,binsA,binsB) %returning HA
 % function to compute the joint entropy H
 % and mutual information Mut_Info of two
 % variables a and b
