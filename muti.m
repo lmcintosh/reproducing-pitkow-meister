@@ -1,4 +1,4 @@
-function [h, Mut_Info] = muti(a,b,binsA,binsB) %returning HA
+function [p, h, Mut_Info] = muti(a,b,binsA,binsB) %returning HA
 % function to compute the joint entropy H
 % and mutual information Mut_Info of two
 % variables a and b
@@ -17,15 +17,12 @@ binwidthB = (max(b)-min(b))/(binsB);
 
 
 for i = 1:length(a)
-    index_a = floor((a(i) - minA)/binwidthA) + 1;
-    if (a(i) == maxA)
+    index_a = floor((a(i) - min(a))/binwidthA) + 1;
+    if (a(i) == max(a))
         index_a = binsA;
     end;
-    if (a(i) == spikeA)
-        index_a = binsA +1;
-    end;
-    index_b = floor((b(i) - minB)/binwidthB) + 1;
-    if (b(i) == maxB)
+    index_b = floor((b(i) - min(b))/binwidthB) + 1;
+    if (b(i) == max(b))
         index_b = binsB;
     end;
     pA(index_a) = pA(index_a) + 1;
