@@ -1,6 +1,10 @@
-% parameters
+function mov = pinkST()
+
 d = 250;
 T = 100;
+fig = 0;
+
+% parameters
 v = 0.1;
 
 % create the filter
@@ -43,12 +47,15 @@ for tidx = 1:T
     
 end
 
-figure(1);
-colormap gray;
 
-for tidx = 1:size(mov,3) 
-    imagesc(mov(:,:,tidx));
-    pause(0.15);
-    title(tidx);
-    drawnow;
+if fig
+    figure(1);
+    colormap gray;
+
+    for tidx = 1:size(mov,3) 
+        imagesc(mov(:,:,tidx));
+        pause(0.15);
+        title(tidx);
+        drawnow;
+    end
 end
