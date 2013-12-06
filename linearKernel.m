@@ -13,4 +13,4 @@ gauss = hist(y,resolution);
 
 kernel = col(sinusoid).*col(gauss);
 
-kernel = kernel/max(kernel);
+kernel = kernel/max(abs(kernel));

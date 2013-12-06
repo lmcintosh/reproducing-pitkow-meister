@@ -2,7 +2,7 @@ function [ filter_response ] = center_surround( height, width, center_radius, su
 %CENTER_SURROUND Summary of this function goes here
 %   Detailed explanation goes here
     filter_response = zeros(height,width);
-    tweak_factor = 1;
+    tweak_factor = 1; % changed from 1; in highCenter was 0.1
     surround_rate_density = -center_rate_density*center_radius^2/(surround_radius^2-center_radius^2)*tweak_factor;
     for i = 1:height
         for j = 1:width

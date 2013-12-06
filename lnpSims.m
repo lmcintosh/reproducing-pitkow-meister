@@ -1,4 +1,4 @@
-function [thetaVec, gainVec, I, I2, I3, numSpikes] = lnpSims()
+function [thetaVec, gainVec, I, I3, numSpikes] = lnpSims()
 
 % make frames from image sequence
 input        = pinkST();
@@ -13,7 +13,7 @@ numNeurons = 1;
 
 % center-surround parameters
 max_rf_radius       = 10;
-center_rate_density = 0.5;
+center_rate_density = 0.5; % changed from 0.5; in highCenter was 0.7
 filterHeightM   = 15;
 filterWidthM    = 15;
 centerRadiusM   = 3;
@@ -25,7 +25,7 @@ off_centerM = center_surround(filterHeightM,filterWidthM,centerRadiusM,surroundR
 thetaVec  = linspace(0.1,3,10);
 gainVec   = logspace(0.01,1,10);
 I         = zeros(length(thetaVec),length(gainVec),numNeurons);
-I2        = zeros(length(thetaVec),length(gainVec),numNeurons);
+%I2        = zeros(length(thetaVec),length(gainVec),numNeurons);
 I3        = zeros(length(thetaVec),length(gainVec),numNeurons);
 numSpikes = zeros(length(thetaVec),length(gainVec),numNeurons);
 
@@ -38,7 +38,7 @@ for i = 1:length(thetaVec)
             location        = floor(rand(2,1).*([image_height image_width]'-2*max_rf_radius)) + max_rf_radius;
             filterRadius    = floor(filterHeightM/2);
             weights         = zeros(image_height+filterHeightM,image_width+filterWidthM);
-            weights(location(1):location(1)+filterHeightM-1,location(2):location(2)+filterWidthM-1) = off_centerM;
+            weights(location(1):location(1)+filterHeightM-1,location(2):location(2)+filterWidthM-1) = on_centerM;
             weights         = weights(filterRadius:image_height+filterRadius-1,filterRadius:image_width+filterRadius-1);
             oneDinput       = zeros(T,1);
 
@@ -56,7 +56,7 @@ for i = 1:length(thetaVec)
             spikes(spikes>1)          = 1;
             avg_spikes                = sum(spikes,2)/iterations;
             [~, I(i,j,n)]             = mutiN(nonlinearOutput,avg_spikes,50);
-            [~, I2(i,j,n)]            = mutiN(nonlinearOutput,oneDinput,50);
+            %[~, I2(i,j,n)]            = mutiN(nonlinearOutput,oneDinput,50);
             [~, I3(i,j,n)]            = mutiN(avg_spikes,oneDinput,50);
             numSpikes(i,j,n)          = sum(avg_spikes);
         end
@@ -65,9 +65,9 @@ end
 
 defaultfigureproperties;
 figure; contourf(thetaVec,gainVec,I); colorbar; xlabel('Threshold'); ylabel('1/gain'); title('Bits between Nonlinear output and spike trains');
-figure; contourf(thetaVec,gainVec,I2); colorbar; xlabel('Threshold'); ylabel('1/gain'); title('Bits between 1d input and nonlinear output');
+%figure; contourf(thetaVec,gainVec,I2); colorbar; xlabel('Threshold'); ylabel('1/gain'); title('Bits between 1d input and nonlinear output');
 figure; contourf(thetaVec,gainVec,I3); colorbar; xlabel('Threshold'); ylabel('1/gain'); title('Bits between 1d input and spike trains');
 figure; contourf(thetaVec,gainVec,I./numSpikes); colorbar; xlabel('Threshold'); ylabel('1/gain'); title('Bits/spike between Nonlinear output and spike trains');
-figure; contourf(thetaVec,gainVec,I2./numSpikes); colorbar; xlabel('Threshold'); ylabel('1/gain'); title('Bits/spike between 1d input and nonlinear output');
+%figure; contourf(thetaVec,gainVec,I2./numSpikes); colorbar; xlabel('Threshold'); ylabel('1/gain'); title('Bits/spike between 1d input and nonlinear output');
 figure; contourf(thetaVec,gainVec,I3./numSpikes); colorbar; xlabel('Threshold'); ylabel('1/gain'); title('Bits/spike between 1d input and spike trains');
 tilefigs
