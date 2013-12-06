@@ -1,11 +1,11 @@
-function [thetaVec, gainVec, I, numSpikes] = lnpSims()
+function [thetaVec, gainVec, I, I2, I3, numSpikes] = lnpSims()
 
 % make frames from image sequence
 input        = pinkST();
 image_height = size(input,1);
 image_width  = size(input,2);
 T            = size(input,3); % number of frames
-Ts           = 0.03;        % bin size in seconds
+Ts           = 0.015;        % bin size in seconds
 time         = T*Ts;
 
 % how many neurons?
@@ -14,13 +14,6 @@ numNeurons = 1;
 % center-surround parameters
 max_rf_radius       = 10;
 center_rate_density = 0.5;
-filterHeightP       = 7;
-filterWidthP        = 7;
-centerRadiusP       = 2;
-surroundRadiusP     = 4;
-on_centerP  = center_surround(filterHeightP,filterWidthP,centerRadiusP,surroundRadiusP,center_rate_density);
-off_centerP = center_surround(filterHeightP,filterWidthP,centerRadiusP,surroundRadiusP,-center_rate_density);
-
 filterHeightM   = 15;
 filterWidthM    = 15;
 centerRadiusM   = 3;
@@ -29,9 +22,11 @@ on_centerM  = center_surround(filterHeightM,filterWidthM,centerRadiusM,surroundR
 off_centerM = center_surround(filterHeightM,filterWidthM,centerRadiusM,surroundRadiusM,-center_rate_density);
 
 % sweep space of nonlinearities
-thetaVec  = linspace(0.1,3,30);
-gainVec   = logspace(0.01,1,30);
+thetaVec  = linspace(0.1,3,10);
+gainVec   = logspace(0.01,1,10);
 I         = zeros(length(thetaVec),length(gainVec),numNeurons);
+I2        = zeros(length(thetaVec),length(gainVec),numNeurons);
+I3        = zeros(length(thetaVec),length(gainVec),numNeurons);
 numSpikes = zeros(length(thetaVec),length(gainVec),numNeurons);
 
 for i = 1:length(thetaVec)
@@ -43,7 +38,7 @@ for i = 1:length(thetaVec)
             location        = floor(rand(2,1).*([image_height image_width]'-2*max_rf_radius)) + max_rf_radius;
             filterRadius    = floor(filterHeightM/2);
             weights         = zeros(image_height+filterHeightM,image_width+filterWidthM);
-            weights(location(1):location(1)+filterHeightM-1,location(2):location(2)+filterWidthM-1) = on_centerM;
+            weights(location(1):location(1)+filterHeightM-1,location(2):location(2)+filterWidthM-1) = off_centerM;
             weights         = weights(filterRadius:image_height+filterRadius-1,filterRadius:image_width+filterRadius-1);
             oneDinput       = zeros(T,1);
 
@@ -52,12 +47,26 @@ for i = 1:length(thetaVec)
                 tmp = spatialFiltered(:,:,t);
                 oneDinput(t) = sum(tmp(:));
             end
-
-            [spikes, nonlinearOutput] = lnp(oneDinput, 'binLength', Ts, 'gain', 1.0/gainVec(j), 'threshold', thetaVec(i), 'peakFiringRate', 30, 'plots', 0); 
+            
+            iterations = 2000;
+            spikes = zeros(length(oneDinput),iterations);
+            for k = 1:iterations
+                [spikes(:,k), nonlinearOutput] = lnp(oneDinput, 'binLength', Ts, 'gain', 1.0/gainVec(j), 'threshold', thetaVec(i), 'peakFiringRate', 30, 'plots', 0);
+            end
             spikes(spikes>1)          = 1;
-            [~, I(i,j,n)]             = muti(spikes,oneDinput,2,2);
-            numSpikes(i,j,n)          = sum(spikes);
+            avg_spikes                = sum(spikes,2)/iterations;
+            [~, I(i,j,n)]             = mutiN(nonlinearOutput,avg_spikes,50);
+            [~, I2(i,j,n)]            = mutiN(nonlinearOutput,oneDinput,50);
+            [~, I3(i,j,n)]            = mutiN(avg_spikes,oneDinput,50);
+            numSpikes(i,j,n)          = sum(avg_spikes);
         end
     end
 end
 
+figure; contourf(thetaVec,gainVec,I)
+figure; contourf(thetaVec,gainVec,I2)
+figure; contourf(thetaVec,gainVec,I3)
+figure; contourf(thetaVec,gainVec,I./numSpikes)
+figure; contourf(thetaVec,gainVec,I2./numSpikes)
+figure; contourf(thetaVec,gainVec,I3./numSpikes)
+tilefigs
