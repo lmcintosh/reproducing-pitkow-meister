@@ -1,14 +1,11 @@
 function mov = pinkST()
 
-d = 250;
-T = 500;
-fig = 1;
+d = 250; % dimension of frame
+T = 500; % number of frames
+fig = 0; % draw figure?
 
 % parameters
-v = 0.01;
-
-% create the filter
-%time = linspace(0,0.1,1);
+v = 0.01; % inversely proportional to the time constant for the temporal filter
 
 % generate fourier coefficients
 F = rand(d,d,T);
@@ -21,7 +18,7 @@ mask = reshape(mask, size(mask,1), size(mask,1), T);
 % modulate fourier coefficients
 Fmod = abs(F).*mask.*exp(2*pi*1i*rand(d,d,T));
     
-% filter
+% filter in time
 for p1 = 1:d
     for p2 = 1:d
         
