@@ -1,8 +1,10 @@
 stim = pinkST();
+stim = stim(:,:,1:100);
 T = size(stim,3);
 
 fig1         = figure(1);
-pause(25)
+set(fig1, 'Position', [500 500 1300 700])
+%pause(25)
 winsize      = get(fig1,'Position');
 winsize(1:2) = [0,0];
 numframes    = size(stim,3);
@@ -14,6 +16,10 @@ set(fig1,'NextPlot','replacechildren')
 
 
 % center-surround parameters
+center_rate_density = 0.5;
+max_rf_radius   = 10;
+image_height    = size(stim,1);
+image_width     = size(stim,2);
 filterHeightM   = 15;
 filterWidthM    = 15;
 centerRadiusM   = 3;
@@ -37,6 +43,7 @@ for i = 1:numframes
 
     subplot(2,3,2)
     colormap gray;
+    caxis([0 0.015])
     imagesc(stim(:,:,i).*weights);
     title('Stimulus weighted by receptive field')
 
@@ -73,6 +80,6 @@ for i = 1:numframes
     A(:,i) = getframe(fig1,winsize);
 end
 
-movie(fig1,A,1,3,winsize)
+%movie(fig1,A,1,3,winsize)
 
 mpgwrite(A,jet,'stimulus.mpg');

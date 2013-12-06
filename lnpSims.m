@@ -63,10 +63,11 @@ for i = 1:length(thetaVec)
     end
 end
 
-figure; contourf(thetaVec,gainVec,I)
-figure; contourf(thetaVec,gainVec,I2)
-figure; contourf(thetaVec,gainVec,I3)
-figure; contourf(thetaVec,gainVec,I./numSpikes)
-figure; contourf(thetaVec,gainVec,I2./numSpikes)
-figure; contourf(thetaVec,gainVec,I3./numSpikes)
+defaultfigureproperties;
+figure; contourf(thetaVec,gainVec,I); colorbar; xlabel('Threshold'); ylabel('1/gain'); title('Bits between Nonlinear output and spike trains');
+figure; contourf(thetaVec,gainVec,I2); colorbar; xlabel('Threshold'); ylabel('1/gain'); title('Bits between 1d input and nonlinear output');
+figure; contourf(thetaVec,gainVec,I3); colorbar; xlabel('Threshold'); ylabel('1/gain'); title('Bits between 1d input and spike trains');
+figure; contourf(thetaVec,gainVec,I./numSpikes); colorbar; xlabel('Threshold'); ylabel('1/gain'); title('Bits/spike between Nonlinear output and spike trains');
+figure; contourf(thetaVec,gainVec,I2./numSpikes); colorbar; xlabel('Threshold'); ylabel('1/gain'); title('Bits/spike between 1d input and nonlinear output');
+figure; contourf(thetaVec,gainVec,I3./numSpikes); colorbar; xlabel('Threshold'); ylabel('1/gain'); title('Bits/spike between 1d input and spike trains');
 tilefigs
