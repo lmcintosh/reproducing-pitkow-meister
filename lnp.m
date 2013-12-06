@@ -6,10 +6,11 @@ function [spikeTrain,nonlinearOutput] = lnp(input, varargin)
 
 p = inputParser;
 addRequired(p, 'input',@isnumeric);
-addParamValue(p, 'binLength',0.5,@isnumeric);
+addParamValue(p, 'binLength',1,@isnumeric);
 addParamValue(p, 'gain',1,@isnumeric);
 addParamValue(p, 'threshold',1,@isnumeric);
 addParamValue(p, 'peakFiringRate',1,@isnumeric);
+addParamValue(p, 'meanFiringRate',1.1,@isnumeric);
 addParamValue(p, 'plots',1,@isnumeric);
 parse(p, input, varargin{:});
 
@@ -23,11 +24,12 @@ linearOutput = conv(p.Results.input,kernel,'same'); % should this be 'full' to m
 % pass the linear filter's output through the nonlinearity/threshold
 nonlinearOutput = sigmoid(linearOutput,'gain',p.Results.gain,'threshold',p.Results.threshold,'maximum',p.Results.peakFiringRate);
 nonlinearOutput = col(nonlinearOutput);
+normConstant    = sum(nonlinearOutput);
+nonlinearOutput = p.Results.meanFiringRate*nonlinearOutput/normConstant;
 
 % use poisson probability of spiking to generate a spike train
-spikeTrain = poissrnd(p.Results.binLength*nonlinearOutput);
-%moreSpikes = find(spikeTrain>1);
-%spikeTrain(moreSpikes) = 1;
+spikeTrain = poissrnd(length(p.Results.input)*p.Results.binLength*nonlinearOutput);
+
 
 ts = 0:length(spikeTrain)-1;
 spikes = ts(find(spikeTrain));
