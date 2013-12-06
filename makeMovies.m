@@ -60,7 +60,7 @@ for i = 1:numframes
     title('Linear Output after biphasic filter')
 
     subplot(2,3,5)
-    nonlinearOutput = sigmoid(linearOutput,'gain',100,'threshold',1.5,'maximum',30);
+    nonlinearOutput = sigmoid(linearOutput,'gain',50,'threshold',1.5,'maximum',30);
     nonlinearOutput = col(nonlinearOutput);
     normConstant    = sum(nonlinearOutput);
     nonlinearOutput = 1.1*nonlinearOutput/normConstant;
@@ -82,4 +82,9 @@ end
 
 %movie(fig1,A,1,3,winsize)
 
-mpgwrite(A,jet,'stimulus.mpg');
+
+movie2avi(A,'stimMovie2','fps',8);
+
+%save stimMovie.mat A
+
+%mpgwrite(A,jet,'stimulus.mpg');

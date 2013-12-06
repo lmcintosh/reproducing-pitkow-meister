@@ -16,7 +16,8 @@ parse(p, input, varargin{:});
 
 % create the linear filter
 % 1, -0.5, 1, 30 are parameters for a biphasic ON cell
-kernel = linearKernel(1,-0.5,1,80); % inputs: freq, phase, var, resolution
+%kernel = linearKernel(1,-0.5,1,100); % inputs: freq, phase, var, resolution
+kernel = linearKernel(1,-0.5,1,30);
 
 % pass the stimulus through the linear filter
 linearOutput = conv(p.Results.input,kernel,'same'); % should this be 'full' to maintain causality, and then snip the end?

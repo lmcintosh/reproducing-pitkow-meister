@@ -51,7 +51,7 @@ for i = 1:length(thetaVec)
             iterations = 2000;
             spikes = zeros(length(oneDinput),iterations);
             for k = 1:iterations
-                [spikes(:,k), nonlinearOutput] = lnp(oneDinput, 'binLength', Ts, 'gain', 1.0/gainVec(j), 'threshold', thetaVec(i), 'peakFiringRate', 30, 'plots', 0);
+                [spikes(:,k), nonlinearOutput] = lnp(oneDinput, 'binLength', Ts, 'gain',  gainVec(j), 'threshold', thetaVec(i), 'peakFiringRate', 30, 'plots', 0);
             end
             spikes(spikes>1)          = 1;
             avg_spikes                = sum(spikes,2)/iterations;
