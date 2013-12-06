@@ -3,23 +3,78 @@ function [] = doMutualInfo()
 %file for various theta and gain parameters
 
 tic
-thetaVec = linspace(0.1,3,60);
-gainVec = logspace(0.01,1,60);
+thetaVec = linspace(0.1,3,30);
+gainVec = logspace(0.1,1,30);
+%KVec = linspace(1,60,30);
 I = zeros(length(thetaVec),length(gainVec));
+Info = zeros(length(thetaVec),length(gainVec));
+spkCount = zeros(length(thetaVec),length(gainVec));
 for n = 1:length(thetaVec)
     theta = thetaVec(n);
     n %so I know how much longer I have to wait...
-    for i = 1:length(gainVec)
-        gain = gainVec(i);
-        I(n,i) = MutualInfo(theta,gain);
+    for k = 1:length(gainVec)
+        gain = gainVec(k);
+        [I(n,k), Info(n,k), spkCount(n,k)] = MutualInfo(theta,gain);
     end
 end
 toc
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %PLOT FIGURE 4f
 
+keyboard
+Imax = zeros(30,30);
+InfoMax = zeros(30,30);
+spkCountMax = zeros(30,30);
+for m = 1:length(thetaVec)
+    for p = 1:length(KVec)
+        Imax(m,p) = I(m,p,15);
+        InfoMax(m,p) = Info(m,p,15);
+        spkCountMax(m,p) = spkCount(m,p,15);
+    end
+end
+colormap('jet');
+axes1 = axes('Parent',figure,'YTick',zeros(0,1),'XTick',[1 2 3 4 5],...
+    'Layer','top',...
+    'FontSize',20,...
+    'FontName','Times New Roman');
+box(axes1,'on');
+hold(axes1,'all');
+contourf(thetaVec,log(1./gainVec),Info',20)
+% Create title
+title('Mutual Information','FontSize',20);
+% Create xlabel
+xlabel('Threshold','FontSize',20);
+% Create ylabel
+ylabel('1/gain','FontSize',20);
+% Create colorbar
+colorbar('peer',axes1,'FontSize',20,'FontName','Times New Roman');
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%movie of raw information, varying theta and gain
+Imax = zeros(30,30);
+Infomax = zeros(30,30);
+spkCountMax = zeros(30,30);
+
+for y = 1:length(KVec)
+    for m = 1:length(thetaVec)
+    for p = 1:length(KVec)
+ 
+        InfoMax(m,p) = Info(m,p,y);
+
+    end
+    end 
+    
+    contourf(thetaVec,log(1./gainVec),InfoMax')
+    infMov(y) = getframe;
+end
+
+
+movie(infMov)
+movie2avi(infMov,'PeakRate','fps',8)
+
 colormap('hot');
-axes1 = axes('Parent',figure,'YTick',zeros(1,0),'XTick',[1 2 3],...
+axes1 = axes('Parent',figure,'YTick',[0 1],'XTick',[1 2 3 4 5],...
     'Layer','top',...
     'FontSize',20,...
     'FontName','Times New Roman');

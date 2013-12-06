@@ -1,4 +1,4 @@
-function [I] = MutualInfo(theta,gain)
+function [I,Info,spkCount] = MutualInfo(theta,gain,K)
 %This function takes parameters theta and gain, which set the nonlinearity,
 %and returns the mutual information in bits/spike between the firing rate
 %(as determined deterministically from the stimulus) and the number of
@@ -10,12 +10,16 @@ deltaT = 0.05; %s (50 ms); time bin for spike count
 mu = 1.1; %Hz, mean firing rate for ganglion cell
 
 %Peak firing rate
+
 KTop = mu*sqrt(2*pi);
 
 KInt = @(r) exp(-0.5*r.^2)./(1+exp(-gain*(r-theta)));
 KBottom = integral(KInt,-Inf,Inf);
 
 K = KTop/KBottom;
+
+%}
+%K = 5;
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %plot of logistic function
@@ -62,9 +66,9 @@ while abs(val) > eps
 end
 
 %Mutual Information
-I = Hn - Hnrho;
+Info = Hn - Hnrho;
 %bits/spike
-I = I/spkCount;
+I = Info/spkCount;
 if isnan(I)
     keyboard
 end

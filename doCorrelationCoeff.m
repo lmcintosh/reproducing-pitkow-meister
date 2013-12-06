@@ -2,9 +2,9 @@ function [] = doCorrelationCoeff()
 
 gain = 8;
 
-thetaVec = linspace(0.01,4,20);
-%thetaVec = 1.5;
-CoeffList = linspace(-0.6,0.6,2);
+%thetaVec = linspace(0.01,4,20);
+thetaVec = 1.5;
+CoeffList = linspace(-0.9,0.9,30);
 %CoeffList = 0.6;
 
 CoeffVec = zeros(length(thetaVec),length(CoeffList));
@@ -37,7 +37,10 @@ hold off
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %FIGURE 4D
 %{
-plot(thetaVec,CoeffVec,'k',Linewidth',3)
+plot(thetaVec,CoeffVec(:,1)/CoeffList(1),'k','Linewidth',3)
+hold on
+plot(thetaVec,CoeffVec(:,2)/CoeffList(2),'k','Linewidth',3)
+hold off
 %}
 
 keyboard
