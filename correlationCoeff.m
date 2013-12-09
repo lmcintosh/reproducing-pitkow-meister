@@ -1,12 +1,14 @@
-function [Coeff] = correlationCoeff(gain,theta,c)
+function [Coeff] = correlationCoeff(gain,theta,c,K)
 
 %Peak firing rate
 deltaT = 0.05; %s (50 ms); time bin for spike count
 mu = 1.1; %Hz, mean firing rate for ganglion cell
+%{
 KTop = mu*sqrt(2*pi);
 KInt = @(r) exp(-0.5*r.^2)./(1+exp(-gain*(r-theta)));
 KBottom = integral(KInt,-Inf,Inf);
 K = KTop/KBottom;
+%}
 
 %<N(x)> = int(N(x)*probabilitydensityfunction)
 NInt = @(x,y) nonlinear(x,gain,theta,K).*ProbDensity(x,y,c);

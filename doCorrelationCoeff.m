@@ -1,10 +1,11 @@
 function [] = doCorrelationCoeff()
 
 gain = 8;
+K = 30;
 
-%thetaVec = linspace(0.01,4,20);
-thetaVec = 1.5;
-CoeffList = linspace(-0.9,0.9,30);
+thetaVec = linspace(0.01,4,20);
+%thetaVec = 1.5;
+CoeffList = linspace(-0.6,0.6,2);
 %CoeffList = 0.6;
 
 CoeffVec = zeros(length(thetaVec),length(CoeffList));
@@ -17,7 +18,7 @@ for n = 1:length(thetaVec)
         
         c = CoeffList(i);
         
-        [Coeff] = correlationCoeff(gain,theta,c);
+        [Coeff] = correlationCoeff(gain,theta,c,K);
         
         CoeffVec(n,i) = Coeff;
     end

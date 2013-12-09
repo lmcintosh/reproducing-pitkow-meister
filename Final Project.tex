@@ -1,0 +1,105 @@
+\documentclass[12pt]{article}
+
+\usepackage{cite}
+\usepackage{amsfonts}
+\usepackage{graphicx}
+\usepackage{epsfig}
+\usepackage{setspace}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{mathtools}
+\usepackage{multirow}
+\usepackage{ulem}
+\usepackage{cite}
+\usepackage[english]{babel} 
+\usepackage{subfigure}
+\usepackage[affil-it]{authblk}
+\usepackage{pdfpages}
+\usepackage{setspace}
+
+
+\setlength{\textwidth}{7.0in}
+\setlength{\oddsidemargin}{-0.25in}   
+\setlength{\topmargin}{-0.5in}
+\setlength{\headheight}{0in}
+\setlength{\textheight}{9.0in}
+
+\newif\ifquoteopen
+\catcode`\"=\active % lets you define `"` as a macro
+\DeclareRobustCommand*{"}{%
+   \ifquoteopen
+     \quoteopenfalse ''%
+   \else
+     \quoteopentrue ``%
+   \fi
+}
+
+\begin{document}
+
+\begin{titlepage}
+
+\newcommand{\HRule}{\rule{\linewidth}{0.5mm}} % Defines a new command for the horizontal lines, change thickness here
+
+\center % Center everything on the page
+
+\textsc{\LARGE Stanford University}\\[1.5cm] % Name of your university/college
+\textsc{\Large NBIO 258 Final Project}\\[0.5cm] % Major heading such as course name
+%\textsc{\large Department of Mathematics}\\[0.5cm] % Minor heading such as course title
+
+
+\HRule \\[0.4cm]
+{ \huge \bfseries Decorrelation and Efficient Coding of Retinal Ganglion Cells}\\[0.4cm] % Title of your document
+\HRule \\[1.5cm]
+ 
+
+\begin{flushleft} \large
+\textit{Authors:}\\
+\textsc{Lindsay Becker, Malcolm Campbell, Kiah Hardcastle, Caitlin Mallory, Lane McIntosh} % Your name
+\end{flushleft}
+
+\vspace{2cm}
+
+
+
+{\large \today}\\[3cm] 
+
+ 
+ \vfill % Fill the rest of the page with whitespace
+
+\end{titlepage}
+
+\newpage
+
+\title{Decorrelation and Efficient Coding of Retinal Ganglion Cells}
+
+\begin{abstract}
+
+Abstract.
+
+\end{abstract}
+
+
+
+\section{Introduction}
+
+Visual systems must compress a vast amount of information from the outside world into a simpler output, limited by the dynamic range and number of neurons. Barlow, in an influential paper (cite), argued that wherever there is redundant information in a message, that message can be conveyed in a simpler manner without the loss of information. He further suggested that a key task of early vision is to reduce the redundancy of natural images. Natural images posses spatial and temporal correlations and are considered to be redundant (note that while correlation and redundancy are not equivalent, a high degree of correlation does indicate a large amount of redundancy). For many years, scientists have addressed the issue of efficient coding in the retina. One proposed mechanism for improving encoding efficiency was decorrelation of the output. Ganglion cells might be expected to have correlated output spike trains, due to correlations in the inputs they receive and overlapping receptive fields. Several questions that have been the topic of much investigation over the last fifty years include: are outputs at the processing state of retinal ganglion cells decorrelated in space or time compared to the signal? If so, what mechanisms could account for this decorrelation? To what degree to retinal ganglion cells process information independently versus redundantly? This introduction will include a brief discussion of several papers that made advancements towards answering these questions. In the subsequent sections we will discuss a recent paper by Pitkow and Meister, which nicely synthesizes the three in more complete and novel manner.
+An early study by Yang Dan et al. addressed the question of whether or not the output of higher-level processing regions in the visual system decorrelate their outputs relative to the stimulus, as was suggested by computational theories (cite Atick and Redlick, 1990). This study focused on the lateral geniculate nucleus (LGN) of the cat. Because natural signals possess temporal correlations, the responses of photoreceptors are redundant: repeating the same information again and again. Decorrelating or “whitening” the stimulus has been proposed to occur in higher processing regions. The authors played clips from movies to the anesthetized cats, and recorded the responses in the LGN. The main finding was that, as shown by a peak in the temporal autocorrelation of each cell only at zero, and the fact that the power-spectrum was mostly flat across frequencies, the responses of LGN cells were decorrelated in time. The authors claimed that linear filtering, from the center-surround spatio-temporal filter, was responsible for this decorrelation. However, their only support for this conclusion was that they were able to generate spike trains that looked similar to those observed by convolving the spatiotemporal filters with the stimulus. They did not look into nonlinear mechanisms. Furthermore, this study looked only at temporal, and not spatial, decorrelation.
+
+
+In a paper by Puchalla et al., the authors tried to examine the efficiency of ganglion cells, which are known to have extensively overlapping receptive fields and process natural visual information with strong correlations. The authors asked “whether retinal processing can detect and eliminate these complex correlations,” although they addressed this point only indirectly. This paper looked not at correlations between the outputs of salamander ganglion cell pairs, but at the amount of redundant information that they encoded. Redundancy was calculated as the difference between mutual information between the responses and the stimulus conveyed in each neuron alone, and the information conveyed by their joint responses. After normalizing to the maximum possible redundancy between any two cells, redundancy values ranged from 0, in the extreme example in which the information between two cells in completely independent, and 1. Retinal processing was assessed under natural conditions, and in response to white noise. The main results were that while most pairs of neurons were almost completely independent, many pairs also had a high degree of redundancy. Redundancy was greatest for cell pairs that were located close to each other (see figure C). To determine the degree to which this redundancy comes from overlapping receptive fields versus correlations in the input, they showed both naturalistic and white noise stimuli. They found that most of the redundancy cameH from the receptive-field overlap. They speculated that the system had mechanisms to reduce redundancy in response to naturalistic stimuli, but did not test this prediction. On a related note, they also did not directly test whether the outputs of retinal ganglion cells were more decorrelated compared to naturalistic stimuli, although their findings that redundancy is nearly the same under naturalistic stimuli versus white noise support the idea. It is worth noting that redundancy is not inherently a bad encoding strategy, and there are situations in which redundancy reduction may not be the best strategy, even while it may improve efficiency in the sense of bits/spike. Redundant information is robust against noise. Thus, in the presence of noise it may be worthwhile to increase the overall information, while decreasing efficiency in terms of bits per spike, and use more neurons to strengthen the message. The theory that redundancy reduction is equivalent to efficient encoding is further challenged by the Pitcow and Meister paper, which shows that optimal efficiency is achieved by implementing a nonlinearity with a steep threshold, that actually increases the overall redundancy in the outputs.
+
+It is problematic in these and other papers to assume that ganglion cells can be characterized fully by their statiotemporal filters for several reasons: first, spatiotemporal filters are known to change during adaptation (a point not addressed adequately in this paper or that by Pitcow and Meister). Second, cells respond to light with many nonlinearities (list some examples). 
+
+
+\newpage
+\begin{thebibliography}{9}
+
+\bibitem{Puchalla} Puchalla, J., Schneidman, E., Harris, R., and Berry, M. (2005) Redundancy in the population code of the retina. \textit{Neuron} 46: 493-504
+
+\bibitem{Dan} Dan, Y., Atick, J., and Clay R. (1996) Efficient coding of natural scenes in the lateral geniculate nucleus: experimental test of a computational theory. \textit{The Journal of Neuroscience} 16(10): 3351-3362.
+
+
+\end{thebibliography}
+
+
+\end{document}
