@@ -24,15 +24,6 @@
 \setlength{\headheight}{0in}
 \setlength{\textheight}{9.0in}
 
-\newif\ifquoteopen
-\catcode`\"=\active % lets you define `"` as a macro
-\DeclareRobustCommand*{"}{%
-   \ifquoteopen
-     \quoteopenfalse ''%
-   \else
-     \quoteopentrue ``%
-   \fi
-}
 
 \begin{document}
 
@@ -92,6 +83,40 @@ An early study by Yang Dan et al. addressed the question of whether or not the o
 In a paper by Puchalla et al., the authors tried to examine the efficiency of ganglion cells, which are known to have extensively overlapping receptive fields and process natural visual information with strong correlations. The authors asked “whether retinal processing can detect and eliminate these complex correlations,” although they addressed this point only indirectly. This paper looked not at correlations between the outputs of salamander ganglion cell pairs, but at the amount of redundant information that they encoded. Redundancy was calculated as the difference between mutual information between the responses and the stimulus conveyed in each neuron alone, and the information conveyed by their joint responses. After normalizing to the maximum possible redundancy between any two cells, redundancy values ranged from 0, in the extreme example in which the information between two cells in completely independent, and 1. Retinal processing was assessed under natural conditions, and in response to white noise. The main results were that while most pairs of neurons were almost completely independent, many pairs also had a high degree of redundancy. Redundancy was greatest for cell pairs that were located close to each other (see figure C). To determine the degree to which this redundancy comes from overlapping receptive fields versus correlations in the input, they showed both naturalistic and white noise stimuli. They found that most of the redundancy cameH from the receptive-field overlap. They speculated that the system had mechanisms to reduce redundancy in response to naturalistic stimuli, but did not test this prediction. On a related note, they also did not directly test whether the outputs of retinal ganglion cells were more decorrelated compared to naturalistic stimuli, although their findings that redundancy is nearly the same under naturalistic stimuli versus white noise support the idea. It is worth noting that redundancy is not inherently a bad encoding strategy, and there are situations in which redundancy reduction may not be the best strategy, even while it may improve efficiency in the sense of bits/spike. Redundant information is robust against noise. Thus, in the presence of noise it may be worthwhile to increase the overall information, while decreasing efficiency in terms of bits per spike, and use more neurons to strengthen the message. The theory that redundancy reduction is equivalent to efficient encoding is further challenged by the Pitcow and Meister paper, which shows that optimal efficiency is achieved by implementing a nonlinearity with a steep threshold, that actually increases the overall redundancy in the outputs.
 
 It is problematic in these and other papers to assume that ganglion cells can be characterized fully by their statiotemporal filters for several reasons: first, spatiotemporal filters are known to change during adaptation (a point not addressed adequately in this paper or that by Pitcow and Meister). Second, cells respond to light with many nonlinearities (list some examples). 
+
+\section{Results}
+
+\subsection{Reproduction of Pitkow and Meister, 2012}
+
+\begin{figure}[h!!]
+\centerline{\includegraphics*[height = 2.0in,width=5.0in,angle=0]{ReplicationOf4f.pdf}}
+\label{Figure 1}
+\caption{The left panel shows a replication of Figure 4 from Pitkow and Meister, 2012, while the right panel shows the original. }
+\end{figure}
+
+\subsection{Constraining Peak Firing Rate}
+
+\begin{figure}[h!!]
+\centerline{\includegraphics*[height = 4.0in,width=5.0in,angle=0]{Figure4PeakFR.pdf}}
+\label{Figure 2}
+\caption{The caption goes here. }
+\end{figure}
+
+
+\begin{figure}[h!!]
+\centerline{\includegraphics*[height = 4.0in,width=5.0in,angle=0]{InfoPeakFR.pdf}}
+\label{Figure 3}
+\caption{The caption goes here. }
+\end{figure}
+
+\subsection{Simulations with Full LNP Model}
+
+\section{Methods}
+
+\subsection{Reduced LNP Model}
+
+\subsection{Full LNP Model}
+
 
 
 \newpage

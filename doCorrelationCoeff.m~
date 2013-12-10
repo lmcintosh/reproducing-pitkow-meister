@@ -6,7 +6,8 @@ K = 30;
 thetaVec = linspace(0,4,20);
 %thetaVec = 1.5;
 CoeffList = linspace(-0.6,0.6,2);
-gainList = 5;
+%gainList = [1 10];
+gainList = 8;
 %CoeffList = 0.6;
 
 CoeffVec = zeros(length(thetaVec),length(gainList),length(CoeffList));
@@ -30,7 +31,6 @@ for n = 1:length(thetaVec)
     end
     
 end
-keyboard
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %FIGURE 4D
 lowThresh1 = squeeze(CoeffVec(1,1,:));

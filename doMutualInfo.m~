@@ -58,12 +58,12 @@ spkCountMax = zeros(30,30);
 
 for y = 1:length(KVec)
     for m = 1:length(thetaVec)
-    for p = 1:length(KVec)
- 
-        InfoMax(m,p) = Info(m,p,y);
-
+        for p = 1:length(KVec)
+            
+            InfoMax(m,p) = Info(m,p,y);
+            
+        end
     end
-    end 
     
 colormap('hot');
 axes1 = axes('Parent',figure,'YTick',[0 1],'XTick',[1 2 3 4 5],...
@@ -73,6 +73,7 @@ axes1 = axes('Parent',figure,'YTick',[0 1],'XTick',[1 2 3 4 5],...
 box(axes1,'on');
 hold(axes1,'all');
 contourf(thetaVec,log(1./gainVec),Infomax',30)
+caxis([0 0.9]);
 % Create title
 title('Mutual Information','FontSize',20);
 % Create xlabel
