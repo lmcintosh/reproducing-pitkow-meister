@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013) (format=pdflatex 2013.5.30)  10 DEC 2013 20:04
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013) (format=pdflatex 2013.5.30)  10 DEC 2013 23:36
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -353,78 +353,79 @@ Missing character: There is no Ä in font cmr12!
 Missing character: There is no ù in font cmr12!
 Missing character: There is no ‚ in font cmr12!
 Missing character: There is no Ä in font cmr12!
+Missing character: There is no ô in font cmr12!
+Missing character: There is no ‚ in font cmr12!
+Missing character: There is no Ä in font cmr12!
 Missing character: There is no ú in font cmr12!
 Missing character: There is no ‚ in font cmr12!
 Missing character: There is no Ä in font cmr12!
 Missing character: There is no ù in font cmr12!
 
 [1]
-LaTeX Font Info:    Try loading font information for U+msa on input line 93.
+LaTeX Font Info:    Try loading font information for U+msa on input line 86.
  (/usr/local/texlive/2013/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 93.
+LaTeX Font Info:    Try loading font information for U+msb on input line 86.
 
 (/usr/local/texlive/2013/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 ) [2]
-<GainThreshCorr.pdf, id=18, 847.165pt x 602.25pt>
+<GainThreshCorr.pdf, id=16, 847.165pt x 602.25pt>
 File: GainThreshCorr.pdf Graphic file (type pdf)
  <use GainThreshCorr.pdf>
-Package pdftex.def Info: GainThreshCorr.pdf used on input line 97.
+Package pdftex.def Info: GainThreshCorr.pdf used on input line 90.
 (pdftex.def)             Requested size: 289.07935pt x 216.80983pt.
 
 [3 <./GainThreshCorr.pdf>]
-<ReplicationOf4f.pdf, id=35, 1181.41376pt x 527.9725pt>
+<ReplicationOf4f.pdf, id=33, 1181.41376pt x 527.9725pt>
 File: ReplicationOf4f.pdf Graphic file (type pdf)
 
 <use ReplicationOf4f.pdf>
-Package pdftex.def Info: ReplicationOf4f.pdf used on input line 108.
+Package pdftex.def Info: ReplicationOf4f.pdf used on input line 101.
 (pdftex.def)             Requested size: 289.07935pt x 108.40424pt.
 
-<Figure4PeakFR.pdf, id=37, 1012.78375pt x 304.13625pt>
+<Figure4PeakFR.pdf, id=35, 1012.78375pt x 304.13625pt>
 File: Figure4PeakFR.pdf Graphic file (type pdf)
  <use Figure4PeakFR.pdf>
-Package pdftex.def Info: Figure4PeakFR.pdf used on input line 118.
+Package pdftex.def Info: Figure4PeakFR.pdf used on input line 111.
 (pdftex.def)             Requested size: 361.34111pt x 108.40303pt.
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[4 <./ReplicationOf4f.pdf>] <InfoPeakFR.pdf, id=53, 807.015pt x 595.22375pt>
+[4 <./ReplicationOf4f.pdf>] <InfoPeakFR.pdf, id=51, 807.015pt x 595.22375pt>
 File: InfoPeakFR.pdf Graphic file (type pdf)
 
 <use InfoPeakFR.pdf>
-Package pdftex.def Info: InfoPeakFR.pdf used on input line 126.
+Package pdftex.def Info: InfoPeakFR.pdf used on input line 119.
 (pdftex.def)             Requested size: 216.81332pt x 144.53685pt.
  [5 <./Figure4PeakFR.pdf> <./InfoPeakFR.pdf>] [6] [7]
 [8] (./FinalProjver2.aux) ) 
 Here is how much of TeX's memory you used:
- 4960 strings out of 493315
- 69015 string characters out of 6137904
+ 4957 strings out of 493315
+ 68974 string characters out of 6137904
  144966 words of memory out of 5000000
- 8304 multiletter control sequences out of 15000+600000
- 13642 words of font info for 50 fonts, out of 8000000 for 9000
+ 8302 multiletter control sequences out of 15000+600000
+ 13034 words of font info for 48 fonts, out of 8000000 for 9000
  957 hyphenation exceptions out of 8191
- 38i,12n,39p,2717b,255s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 38i,12n,39p,2342b,255s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/local/texlive/2013/texmf-dist/fonts/type1/publ
-ic/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2013/texmf-dist/fonts/type1/publi
-c/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2013/texmf-dist/fonts/type1/public
-/amsfonts/cm/cmcsc10.pfb></usr/local/texlive/2013/texmf-dist/fonts/type1/public
-/amsfonts/cm/cmex10.pfb></usr/local/texlive/2013/texmf-dist/fonts/type1/public/
-amsfonts/cm/cmmi12.pfb></usr/local/texlive/2013/texmf-dist/fonts/type1/public/a
-msfonts/cm/cmmi8.pfb></usr/local/texlive/2013/texmf-dist/fonts/type1/public/ams
-fonts/cm/cmr10.pfb></usr/local/texlive/2013/texmf-dist/fonts/type1/public/amsfo
-nts/cm/cmr12.pfb></usr/local/texlive/2013/texmf-dist/fonts/type1/public/amsfont
-s/cm/cmr6.pfb></usr/local/texlive/2013/texmf-dist/fonts/type1/public/amsfonts/c
-m/cmr8.pfb></usr/local/texlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/c
-msy10.pfb></usr/local/texlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cm
-sy8.pfb></usr/local/texlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmti
-12.pfb>
-Output written on FinalProjver2.pdf (9 pages, 1757310 bytes).
+ic/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2013/texmf-dist/fonts/type1/publi
+c/amsfonts/cm/cmcsc10.pfb></usr/local/texlive/2013/texmf-dist/fonts/type1/publi
+c/amsfonts/cm/cmex10.pfb></usr/local/texlive/2013/texmf-dist/fonts/type1/public
+/amsfonts/cm/cmmi12.pfb></usr/local/texlive/2013/texmf-dist/fonts/type1/public/
+amsfonts/cm/cmmi8.pfb></usr/local/texlive/2013/texmf-dist/fonts/type1/public/am
+sfonts/cm/cmr12.pfb></usr/local/texlive/2013/texmf-dist/fonts/type1/public/amsf
+onts/cm/cmr6.pfb></usr/local/texlive/2013/texmf-dist/fonts/type1/public/amsfont
+s/cm/cmr8.pfb></usr/local/texlive/2013/texmf-dist/fonts/type1/public/amsfonts/c
+m/cmsy10.pfb></usr/local/texlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm
+/cmsy8.pfb></usr/local/texlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/c
+mti12.pfb>
+Output written on FinalProjver2.pdf (9 pages, 1737513 bytes).
 PDF statistics:
- 138 PDF objects out of 1000 (max. 8388607)
- 93 compressed objects within 1 object stream
+ 130 PDF objects out of 1000 (max. 8388607)
+ 87 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  45 words of extra memory for PDF output out of 10000 (max. 10000000)
 
