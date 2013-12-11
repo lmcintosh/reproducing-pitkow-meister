@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013) (format=pdflatex 2013.5.30)  10 DEC 2013 16:43
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013) (format=pdflatex 2013.5.30)  10 DEC 2013 20:03
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -397,28 +397,34 @@ File: InfoPeakFR.pdf Graphic file (type pdf)
 <use InfoPeakFR.pdf>
 Package pdftex.def Info: InfoPeakFR.pdf used on input line 126.
 (pdftex.def)             Requested size: 216.81332pt x 144.53685pt.
- [5 <./Figure4PeakFR.pdf> <./InfoPeakFR.pdf>] [6]
-(./Final Project.aux) ) 
+ [5 <./Figure4PeakFR.pdf> <./InfoPeakFR.pdf>] [6] [7]
+[8] (./Final Project.aux) ) 
 Here is how much of TeX's memory you used:
- 4955 strings out of 493315
- 68964 string characters out of 6137904
+ 4960 strings out of 493315
+ 69017 string characters out of 6137904
  144966 words of memory out of 5000000
- 8301 multiletter control sequences out of 15000+600000
- 12714 words of font info for 47 fonts, out of 8000000 for 9000
+ 8304 multiletter control sequences out of 15000+600000
+ 13642 words of font info for 50 fonts, out of 8000000 for 9000
  957 hyphenation exceptions out of 8191
- 38i,8n,39p,2719b,255s stack positions out of 5000i,500n,10000p,200000b,80000s
-</usr/local/texlive/2013/texmf-dist/fonts/type1/public/a
-msfonts/cm/cmbx10.pfb></usr/local/texlive/2013/texmf-dist/fonts/type1/public/am
-sfonts/cm/cmbx12.pfb></usr/local/texlive/2013/texmf-dist/fonts/type1/public/ams
-fonts/cm/cmcsc10.pfb></usr/local/texlive/2013/texmf-dist/fonts/type1/public/ams
-fonts/cm/cmmi12.pfb></usr/local/texlive/2013/texmf-dist/fonts/type1/public/amsf
-onts/cm/cmr10.pfb></usr/local/texlive/2013/texmf-dist/fonts/type1/public/amsfon
-ts/cm/cmr12.pfb></usr/local/texlive/2013/texmf-dist/fonts/type1/public/amsfonts
-/cm/cmti12.pfb>
-Output written on "Final Project.pdf" (7 pages, 1695776 bytes).
+ 38i,12n,39p,2719b,255s stack positions out of 5000i,500n,10000p,200000b,80000s
+</usr/local/texlive/2013/texmf-dist/fonts/type1/publ
+ic/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2013/texmf-dist/fonts/type1/publi
+c/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2013/texmf-dist/fonts/type1/public
+/amsfonts/cm/cmcsc10.pfb></usr/local/texlive/2013/texmf-dist/fonts/type1/public
+/amsfonts/cm/cmex10.pfb></usr/local/texlive/2013/texmf-dist/fonts/type1/public/
+amsfonts/cm/cmmi12.pfb></usr/local/texlive/2013/texmf-dist/fonts/type1/public/a
+msfonts/cm/cmmi8.pfb></usr/local/texlive/2013/texmf-dist/fonts/type1/public/ams
+fonts/cm/cmr10.pfb></usr/local/texlive/2013/texmf-dist/fonts/type1/public/amsfo
+nts/cm/cmr12.pfb></usr/local/texlive/2013/texmf-dist/fonts/type1/public/amsfont
+s/cm/cmr6.pfb></usr/local/texlive/2013/texmf-dist/fonts/type1/public/amsfonts/c
+m/cmr8.pfb></usr/local/texlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/c
+msy10.pfb></usr/local/texlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cm
+sy8.pfb></usr/local/texlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmti
+12.pfb>
+Output written on "Final Project.pdf" (9 pages, 1757310 bytes).
 PDF statistics:
- 108 PDF objects out of 1000 (max. 8388607)
- 71 compressed objects within 1 object stream
+ 138 PDF objects out of 1000 (max. 8388607)
+ 93 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  45 words of extra memory for PDF output out of 10000 (max. 10000000)
 
