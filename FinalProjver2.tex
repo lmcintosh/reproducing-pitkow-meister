@@ -18,6 +18,7 @@
 \usepackage{setspace}
 
 
+
 \setlength{\textwidth}{7.0in}
 \setlength{\oddsidemargin}{-0.25in}   
 \setlength{\topmargin}{-0.5in}
@@ -122,6 +123,25 @@ While this figure remains relatively unchanged for various peak firing rates, fi
 \end{figure}
 
 \subsection{Simulations with Full LNP Model}
+Pitkow and Meister found the optimal threshold and gain for a sigmoid nonlinearity under the assumption that retinal ganglion cell firing rates are Gaussian distributed when responding to a Gaussian stimulus.  While the central limit theorem does state that many Poisson processes will yield a Gaussian distribution, we wanted to investigate how safe their assumption was.  From firing rates of tiger salamander retinal ganglion cells responding to both white spatiotemporal and pink temporal noise, \footnote{Data collected by Lane in the Baccus lab on 7/15/2013.} we found that firing rates are strongly Poisson for small to moderate bin sizes $< 500$ ms (see Figure 5).  Although the distribution becomes more normal as the bin size increases, there is a persistently non-zero kurtosis that may arise from the fact that firing rates are strictly non-negative.
+
+\begin{figure}[h!!]
+\centering
+\begin{minipage}[b]{0.45\linewidth}
+\centering
+\includegraphics[width=\textwidth]{NonGaussianFR.pdf}
+\end{minipage}
+\begin{minipage}[b]{0.45\linewidth}
+\centering
+\includegraphics[width=\textwidth]{NonGaussianFR_2s.eps}
+\end{minipage}
+\caption{Firing rates are strongly non-Gaussian for bin sizes $<$ 1 second (left), with non-zero kurtosis persisting in distributions for larger bins (right).}
+\label{Figure 5}
+\end{figure}
+
+To replicate their findings under less restrictive assumptions on the firing rate, we implemented a full spatiotemporal LNP model (Figure 6) and varied the threshold and gain under various conditions.
+
+
 
 \section{Methods}
 
