@@ -134,6 +134,92 @@ While this figure remains relatively unchanged for various peak firing rates, fi
 
 \subsection{Idealized LNP Model}
 
+Note: In this section, numbered equations are taken from the Pitkow Meister paper. This is a description of the equations from that paper and how they enabled us to examine the effect of various parameters on mutual information and correlation.
+
+\subsubsection{Mutual Information}
+
+The reduced LNP model works under the assumption that the firing rate is a deterministic function of the stimulus, i.e. that the input noise is negligible. With this assumption, the mutual information between the spike count, $n$, and the stimulus, $s$, is equivalent to the mutual information between the spike count and the firing rate, $\rho$.
+
+\begin{align}
+\displaystyle I(n;s) = H(n)-H(n|s)=H(n)-H(n|\rho)=I(n;\rho) \tag{18}
+\end{align}
+
+\noindent Now that we have this equivalency, we only need to calculate the probability distributions for the firing rate and the spike count, and calculate the mutual information between them. We start with the linear output of the LNP model, $r$, which we assume to be normally distributed with mean 0 and variance 1. This will be true by construction due to the statistics of the stimulus. Therefore, $r$ has the standard Gaussian probability distribution
+
+\begin{align}
+\displaystyle p(r) = \frac{1}{\sqrt{2\pi}}e^{-r^2/2} \notag
+\end{align}
+
+\noindent This output is passed through a sigmoidal nonlinearity with peak $K$, gain $g$, and half-max threshold $\theta$ to get the firing rate, $\rho$.
+
+\begin{align}
+\displaystyle \rho(t) = N(r(t)) = K \Big/ \left(1+e^{-g(r(t)-\theta)}\right) \tag{8, 10}
+\end{align}
+
+\noindent We can derive the probability distribution for $\rho$ by changing variables from $r$ to $\rho$. Note that $r=N^{-1}(\rho)$.
+
+\begin{align}
+\displaystyle p(\rho) = p(N^{-1}(\rho))\left | \frac{dN^{-1}(\rho)}{d\rho} \right | \notag
+\end{align}
+
+\noindent Since $\displaystyle N^{-1}(\rho)= \theta - \log(K/\rho-1)$ by equation 10, this yields the following formula for the distribution of firing rates:
+
+\begin{align}
+\displaystyle p(\rho) = \frac{K\exp\left[ -\frac{1}{2}\left( \frac{1}{g}\log(K/\rho-1)-\theta\right)^2\right]}{\sqrt{2\pi}g\rho^2(K/\rho-1)} \tag{19}
+\end{align}
+
+\noindent The distribution of spike counts is assumed to be Poisson, with mean equal to the firing rate times the length of the time window.
+\begin{align}
+\displaystyle P(n|\rho) = \frac{e^{-\rho\Delta t}(\rho \Delta t)^n}{n!} \tag{9}
+\end{align}
+
+\noindent To find the unconditional probability of observing $n$ spikes in a time window, we integrate over all possible values of $\rho$.
+
+\begin{align}
+\displaystyle P(n) =\int d\rho \; P(n|\rho) \; p(\rho) \notag
+\end{align}
+
+\noindent Now we can calculate mutual information between the spike count and the firing rate using $I(n;\rho)=H(n)-H(n|\rho)$, where $H(n)$ and $H(n|\rho)$ are given by
+
+\begin{align}
+\displaystyle H(n) = -\sum\limits_{n=0}^\infty P(n)\log P(n) \tag{16}
+\end{align}
+
+\begin{align}
+\displaystyle H(n|\rho) = -\int\limits_0^K d\rho \; p(\rho) \sum\limits_{n=0}^\infty P(n|\rho) \log P(n|\rho) \tag{17}
+\end{align}
+
+\noindent The integral goes from zero to $K$ in equation 17 because $K$ is the peak firing rate. This enables us to calculate mutual information as a function of gain ($g$), threshold ($\theta$), and peak rate ($K$), which enter into the formula for $I(n;\rho)$ via equation 19. Bits per spike is simply $I(n;\rho)/n$.
+
+\subsubsection{Correlation}
+
+Suppose that two neurons have linear outputs $x$ and $y$ that are normally distributed with mean zero, variance one, and correlation coefficient $c$. Then the covariance matrix is
+
+\[ {\bf\Sigma} = \left( \begin{array}{cc}
+1 & c \\
+c & 1 \\
+\end{array} \right) \]
+
+\noindent and the joint probability distribution is
+
+\begin{align}
+\displaystyle P(x,y) = \frac{1}{2\pi |{\bf \Sigma}|^{\frac{1}{2}}}\exp\left( -\frac{1}{2}{\bf x}^T {\bf \Sigma}^{-1} {\bf x}\right)=\frac{1}{2\pi \sqrt{1-c^2}}\exp\left( -\frac{1}{2}\frac{x^2-2xyc+y^2}{1-c^2}\right) \tag{13}
+\end{align}
+
+\noindent When we pass this through the nonlinearity $N$ (equation 10), the correlation becomes
+
+\begin{align}
+\displaystyle C_{N(x)N(y)} = \frac{\langle N(x)N(y)\rangle- \langle N(x)\rangle^2}{\langle N(x)^2 \rangle - \langle N(x) \rangle^2} \tag{12}
+\end{align}
+
+\noindent where $\langle \:\rangle$ denotes expected value. This equation makes use of the fact that $\langle N(x) \rangle = \langle N(y) \rangle$ and $\langle N(x)^2 \rangle = \langle N(y)^2 \rangle$. These expected values are calculated by numerical integration:
+
+\begin{align}
+\langle N(x)N(y) \rangle = \int \int dx\;dy\;N(x)N(y)P(x,y) \notag
+\end{align}
+
+\noindent This enables us to calculate the amount by which the nonlinearity reduces correlations that are present at the output of the linear filter.
+
 \subsection{Full LNP Model}
 
 
