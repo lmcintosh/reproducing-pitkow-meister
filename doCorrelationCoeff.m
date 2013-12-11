@@ -1,12 +1,12 @@
 function [] = doCorrelationCoeff()
 
 %gain = 8;
-K = 30;
+%K = 30;
 
 thetaVec = linspace(0,4,20);
 %thetaVec = 1.5;
 CoeffList = linspace(-0.6,0.6,2);
-gainList = 5;
+gainList = linspace(0.1,10,20);
 %CoeffList = 0.6;
 
 CoeffVec = zeros(length(thetaVec),length(gainList),length(CoeffList));
