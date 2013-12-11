@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012) (format=pdflatex 2012.6.30)  11 DEC 2013 02:08
+This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012) (format=pdflatex 2012.6.30)  11 DEC 2013 02:47
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -278,7 +278,7 @@ File: pppdftex.def 2012/04/03 v0.4s Pdfpages driver for pdfTeX (AM)
 )
 (./FinalProjver2.aux
 
-LaTeX Warning: Label `Figure 7' multiply defined.
+LaTeX Warning: Label `Figure 8' multiply defined.
 
 )
 \openout1 = `FinalProjver2.aux'.
@@ -465,45 +465,103 @@ File: ReplicationOf4f_justOurs.pdf Graphic file (type pdf)
 Package pdftex.def Info: ReplicationOf4f_justOurs.pdf used on input line 170.
 (pdftex.def)             Requested size: 201.47911pt x 173.47124pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 176--190
+Underfull \hbox (badness 10000) in paragraph at lines 176--180
 
  []
 
 
-Overfull \hbox (32.2023pt too wide) in paragraph at lines 176--190
-[] 
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 176--190
+Underfull \hbox (badness 10000) in paragraph at lines 176--180
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 176--190
+Underfull \hbox (badness 10000) in paragraph at lines 176--180
 
  []
 
-<On_vs_Off.png, id=113, 687.0468pt x 258.2448pt>
-File: On_vs_Off.png Graphic file (type png)
- <use On_vs_Off.png>
-Package pdftex.def Info: On_vs_Off.png used on input line 194.
-(pdftex.def)             Requested size: 433.62804pt x 144.54517pt.
+File: 4f_contour_LNPsimulation_OFFcell.png Graphic file (type png)
+<use 4f_contour_LNPsimulation_OFFcell.png>
+Package pdftex.def Info: 4f_contour_LNPsimulation_OFFcell.png used on input lin
+e 185.
+(pdftex.def)             Requested size: 224.43452pt x 168.22551pt.
+
+<4f_contour_LNPsimulation_ONcell_highFiringRate.png, id=113, 566.115pt x 448.67
+625pt>
+File: 4f_contour_LNPsimulation_ONcell_highFiringRate.png Graphic file (type png
+)
+ <use 4f_contour_LNPsimulation_ONcell_highFiringRate.png>
+Package pdftex.def Info: 4f_contour_LNPsimulation_ONcell_highFiringRate.png use
+d on input line 189.
+(pdftex.def)             Requested size: 215.12593pt x 170.49875pt.
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
+
+Underfull \hbox (badness 10000) in paragraph at lines 195--209
+
+ []
+
+
+Overfull \hbox (32.2023pt too wide) in paragraph at lines 195--209
+[] 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 195--209
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 195--209
+
+ []
+
 [7 <./4f_contour_LNPsimulation_OFFcell.png (PNG copy)> <./ReplicationOf4f_justO
-urs.pdf>] [8 <./On_vs_Off.png>] [9] [10] [11] (./FinalProjver2.aux)
+urs.pdf>] <On_vs_Off.png, id=128, 687.0468pt x 258.2448pt>
+File: On_vs_Off.png Graphic file (type png)
+ <use On_vs_Off.png>
+Package pdftex.def Info: On_vs_Off.png used on input line 213.
+(pdftex.def)             Requested size: 433.62804pt x 144.54517pt.
+
+[8 <./On_vs_Off.png> <./4f_contour_LNPsimulation_ONcell_highFiringRate.png (PNG
+ copy)>]
+<4f_contour_LNPsimulation_ONcell_highCenter.png, id=136, 862.22125pt x 652.4375
+pt>
+File: 4f_contour_LNPsimulation_ONcell_highCenter.png Graphic file (type png)
+ <use 4f_contour_LNPsimulation_ONcell_highCenter.png>
+Package pdftex.def Info: 4f_contour_LNPsimulation_ONcell_highCenter.png used on
+ input line 225.
+(pdftex.def)             Requested size: 151.76854pt x 114.83533pt.
+
+<4f_contour_LNPsimulation_ONcell_longFilter.png, id=137, 759.83875pt x 572.1375
+pt>
+File: 4f_contour_LNPsimulation_ONcell_longFilter.png Graphic file (type png)
+ <use 4f_contour_LNPsimulation_ONcell_longFilter.png>
+Package pdftex.def Info: 4f_contour_LNPsimulation_ONcell_longFilter.png used on
+ input line 229.
+(pdftex.def)             Requested size: 151.76854pt x 114.27705pt.
+
+<4f_contour_LNPsimulation_ONcell_monophasicFilter.png, id=138, 754.82pt x 573.1
+4125pt>
+File: 4f_contour_LNPsimulation_ONcell_monophasicFilter.png Graphic file (type p
+ng)
+ <use 4f_contour_LNPsimulation_ONcell_monophasicFilter.png>
+Package pdftex.def Info: 4f_contour_LNPsimulation_ONcell_monophasicFilter.png u
+sed on input line 233.
+(pdftex.def)             Requested size: 151.76854pt x 115.23839pt.
+ [9 <./4f_contour_LNPsimulation_ONcell_highCenter.png (PNG copy)> <./4f_contour
+_LNPsimulation_ONcell_longFilter.png (PNG copy)> <./4f_contour_LNPsimulation_ON
+cell_monophasicFilter.png (PNG copy)>] [10] [11] [12] (./FinalProjver2.aux)
 
 LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 4906 strings out of 493488
- 68262 string characters out of 3141326
- 137862 words of memory out of 3000000
- 8097 multiletter control sequences out of 15000+200000
+ 4928 strings out of 493488
+ 69328 string characters out of 3141326
+ 137879 words of memory out of 3000000
+ 8115 multiletter control sequences out of 15000+200000
  14733 words of font info for 56 fonts, out of 3000000 for 9000
  957 hyphenation exceptions out of 8191
  38i,12n,39p,2342b,296s stack positions out of 5000i,500n,10000p,200000b,50000s
@@ -520,10 +578,10 @@ exlive/2012/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texl
 ive/2012/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texli
 ve/2012/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive
 /2012/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb>
-Output written on FinalProjver2.pdf (12 pages, 2487187 bytes).
+Output written on FinalProjver2.pdf (13 pages, 2546213 bytes).
 PDF statistics:
- 191 PDF objects out of 1000 (max. 8388607)
- 126 compressed objects within 2 object streams
+ 199 PDF objects out of 1000 (max. 8388607)
+ 129 compressed objects within 2 object streams
  0 named destinations out of 1000 (max. 500000)
- 86 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 106 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -173,6 +173,25 @@ Figure 7 shows the efficiency landscape as we vary (1/gain $\times$ threshold) i
 \label{Figure 7}
 \end{figure}
 
+The preference for a low threshold is surprising, especially since the model fires more often in this regime leading to a larger penalty in efficiency.  However, it is possible that in this low firing rate regime (1.1 Hz), additional spikes add information supralinearly.  This could very well be the case where a low firing probability can degrade the reliability and information content of a single spike, stemming from a weakened conditional probability distribution $p($spike $|$ stimulus feature$)$ that decreases $I[$spike; stimulus feature$] = H($spike$) - H($spike $|$ stimulus feature$)$.  \\
+\\
+However, testing this hypothesis by quintupling the mean firing rate did not change the efficiency landscape significantly, although it did reduce the overall efficiency (see Figure 8). \\
+\\
+
+\begin{figure}[h!!]
+\centering
+\begin{minipage}[b]{0.48\linewidth}
+\centering
+\includegraphics[scale=0.4]{4f_contour_LNPsimulation_OFFcell.png}
+\end{minipage}
+\begin{minipage}[b]{0.48\linewidth}
+\centering
+\includegraphics[scale=0.38]{4f_contour_LNPsimulation_ONcell_highFiringRate.png}
+\end{minipage}
+\caption{Effect of mean firing rate on the efficiency (bits/spike) landscape. The biologically-inspired low firing rate regime of 1.1Hz is on the left while the contour plot on the right belongs to an LNP model with a high firing rate of 40-50 Hz.}
+\label{Figure 8}
+\end{figure}
+
 The main disadvantage to doing the full LNP simulation is the large number of parameters that need fine tuning.  Parameters include the following: \\
 \\
 \begin{tabular}{|c|c|c|c|} \hline
@@ -192,8 +211,29 @@ Naively it seemed that the optimal nonlinear gain and threshold would be invaria
 
 \begin{figure}[h!!]
 \centerline{\includegraphics*[height = 2.0in,width=6.0in,angle=0]{On_vs_Off.png}}
-\label{Figure 7}
+\label{Figure 8}
 \caption{Efficiency (bits/spike) in two identical LNP models except for the polarity of the center-surround spatial receptive field.  The left model has an On-Off center-surround while the right has an Off-On center-surround.}
+\end{figure}
+
+\subsection{Effects of the Filter on the Optimal LNP Nonlinearities}
+While fine tuning parameters is mostly just very annoying, it does have the perk of investigating how the optimal nonlinear gain and threshold change as a function of what is (and isn't) linearly filtered from the stimulus. 
+
+\begin{figure}[h!!]
+\centering
+\begin{minipage}[b]{0.3\linewidth}
+\centering
+\includegraphics[width=\textwidth]{4f_contour_LNPsimulation_ONcell_highCenter.png}
+\end{minipage}
+\begin{minipage}[b]{0.3\linewidth}
+\centering
+\includegraphics[width=\textwidth]{4f_contour_LNPsimulation_ONcell_longFilter.png}
+\end{minipage}
+\begin{minipage}[b]{0.3\linewidth}
+\centering
+\includegraphics[width=\textwidth]{4f_contour_LNPsimulation_ONcell_monophasicFilter.png}
+\end{minipage}
+\caption{Effects of changing the linear spatiotemporal filter on the efficiency of nonlinear gain, threshold pairs.  The leftmost contour plot has a spatial receptive field with a strong center and weak surround.  The terrifying clown face contour plot in the middle has a longer temporal filter that integrates signals over the course of 100 ms instead of the others' 50 ms timescale.  The rightmost contour plot has a monophasic temporal filter instead of a biphasic one.}
+\label{Figure 9}
 \end{figure}
 
 
@@ -289,7 +329,10 @@ c & 1 \\
 \noindent This enables us to calculate the amount by which the nonlinearity reduces correlations that are present at the output of the linear filter.
 
 \subsection{Full LNP Model}
-
+- 2000 simulations to get probability distribution
+- product of a sinusoid and a Gaussian to get filter
+- used sigmoid from reduced model
+- all the usual LNP stages
 
 
 \newpage
