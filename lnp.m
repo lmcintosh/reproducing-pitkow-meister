@@ -36,9 +36,9 @@ ts = 0:length(spikeTrain)-1;
 spikes = ts(find(spikeTrain));
 
 if p.Results.plots ~= 0
-    figure; subplot(4,1,1), plot(p.Results.input), title('Stimulus'),
-    subplot(4,1,2), plot(linearOutput), title('Linear Output'),
-    subplot(4,1,3), plot(nonlinearOutput), title('Nonlinear Output'),
+    figure; subplot(4,1,1), plot(p.Results.input,'k'), title('Stimulus'),
+    subplot(4,1,2), plot(linearOutput,'k','LineWidth',1), title('Linear Output'),
+    subplot(4,1,3), plot(nonlinearOutput,'k','LineWidth',1), title('Nonlinear Output'),
     subplot(4,1,4), ...
         for i = 1:length(spikes)
             line([spikes(i),spikes(i)],[0,1],'Color','k');

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012) (format=pdflatex 2012.6.30)  11 DEC 2013 00:55
+This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012) (format=pdflatex 2012.6.30)  11 DEC 2013 01:19
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -276,7 +276,11 @@ File: pppdftex.def 2012/04/03 v0.4s Pdfpages driver for pdfTeX (AM)
 \c@AM@survey=\count113
 \AM@templatesizebox=\box32
 )
-(./FinalProjver2.aux)
+(./FinalProjver2.aux
+
+LaTeX Warning: Label `Figure 5' multiply defined.
+
+)
 \openout1 = `FinalProjver2.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 29.
@@ -291,8 +295,7 @@ LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 29.
 LaTeX Font Info:    ... okay on input line 29.
 LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 29.
 LaTeX Font Info:    ... okay on input line 29.
-
-(/usr/local/texlive/2012/texmf-dist/tex/context/base/supp-pdf.mkii
+ (/usr/local/texlive/2012/texmf-dist/tex/context/base/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count114
 \scratchdimen=\dimen132
@@ -419,7 +422,7 @@ Package epstopdf Info: Source file: <NonGaussianFR_2s.eps>
 (epstopdf)                    date: 2013-12-11 00:30:46
 (epstopdf)                    size: 9697 bytes
 (epstopdf)             Output file: <NonGaussianFR_2s-eps-converted-to.pdf>
-(epstopdf)                    date: 2013-12-11 00:37:30
+(epstopdf)                    date: 2013-12-11 01:15:59
 (epstopdf)                    size: 7499 bytes
 (epstopdf)             Command: <repstopdf --outfile=NonGaussianFR_2s-eps-conve
 rted-to.pdf NonGaussianFR_2s.eps>
@@ -433,34 +436,73 @@ File: NonGaussianFR_2s-eps-converted-to.pdf Graphic file (type pdf)
 Package pdftex.def Info: NonGaussianFR_2s-eps-converted-to.pdf used on input li
 ne 136.
 (pdftex.def)             Requested size: 227.64894pt x 171.03928pt.
- [6 <./NonGaussianFR.pdf> <./NonGaussianFR_2s-eps-converted-to.pdf>] [7] [8] [9
-] (./FinalProjver2.aux) ) 
+Package epstopdf Info: Source file: <lnp_white.eps>
+(epstopdf)                    date: 2013-12-11 01:10:05
+(epstopdf)                    size: 33519 bytes
+(epstopdf)             Output file: <lnp_white-eps-converted-to.pdf>
+(epstopdf)                    date: 2013-12-11 01:16:00
+(epstopdf)                    size: 23402 bytes
+(epstopdf)             Command: <repstopdf --outfile=lnp_white-eps-converted-to
+.pdf lnp_white.eps>
+(epstopdf)             \includegraphics on input line 148.
+Package epstopdf Info: Output file is already uptodate.
+
+<lnp_white-eps-converted-to.pdf, id=80, 1217.54875pt x 719.68875pt>
+File: lnp_white-eps-converted-to.pdf Graphic file (type pdf)
+
+<use lnp_white-eps-converted-to.pdf>
+Package pdftex.def Info: lnp_white-eps-converted-to.pdf used on input line 148.
+
+(pdftex.def)             Requested size: 242.82503pt x 143.52888pt.
+Package epstopdf Info: Source file: <lnp_pink.eps>
+(epstopdf)                    date: 2013-12-11 01:12:13
+(epstopdf)                    size: 31450 bytes
+(epstopdf)             Output file: <lnp_pink-eps-converted-to.pdf>
+(epstopdf)                    date: 2013-12-11 01:16:01
+(epstopdf)                    size: 20864 bytes
+(epstopdf)             Command: <repstopdf --outfile=lnp_pink-eps-converted-to.
+pdf lnp_pink.eps>
+(epstopdf)             \includegraphics on input line 152.
+Package epstopdf Info: Output file is already uptodate.
+
+<lnp_pink-eps-converted-to.pdf, id=81, 1261.71375pt x 713.66624pt>
+File: lnp_pink-eps-converted-to.pdf Graphic file (type pdf)
+
+<use lnp_pink-eps-converted-to.pdf>
+Package pdftex.def Info: lnp_pink-eps-converted-to.pdf used on input line 152.
+(pdftex.def)             Requested size: 242.82503pt x 137.34033pt.
+ [6 <./NonGaussianFR.pdf> <./NonGaussianFR_2s-eps-converted-to.pdf> <./lnp_whit
+e-eps-converted-to.pdf> <./lnp_pink-eps-converted-to.pdf>] [7] [8] [9] [10] (./
+FinalProjver2.aux)
+
+LaTeX Warning: There were multiply-defined labels.
+
+ ) 
 Here is how much of TeX's memory you used:
- 4878 strings out of 493488
- 67633 string characters out of 3141326
- 137805 words of memory out of 3000000
- 8075 multiletter control sequences out of 15000+200000
+ 4888 strings out of 493488
+ 67932 string characters out of 3141326
+ 137844 words of memory out of 3000000
+ 8083 multiletter control sequences out of 15000+200000
  14733 words of font info for 56 fonts, out of 3000000 for 9000
  957 hyphenation exceptions out of 8191
  38i,12n,39p,2342b,294s stack positions out of 5000i,500n,10000p,200000b,50000s
-</usr/local/texlive/2012/texmf-dist/fonts/type1/public
-/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2012/texmf-dist/fonts/type1/public/
-amsfonts/cm/cmcsc10.pfb></usr/local/texlive/2012/texmf-dist/fonts/type1/public/
-amsfonts/cm/cmex10.pfb></usr/local/texlive/2012/texmf-dist/fonts/type1/public/a
-msfonts/cm/cmmi12.pfb></usr/local/texlive/2012/texmf-dist/fonts/type1/public/am
-sfonts/cm/cmmi8.pfb></usr/local/texlive/2012/texmf-dist/fonts/type1/public/amsf
-onts/cm/cmr10.pfb></usr/local/texlive/2012/texmf-dist/fonts/type1/public/amsfon
-ts/cm/cmr12.pfb></usr/local/texlive/2012/texmf-dist/fonts/type1/public/amsfonts
-/cm/cmr6.pfb></usr/local/texlive/2012/texmf-dist/fonts/type1/public/amsfonts/cm
-/cmr7.pfb></usr/local/texlive/2012/texmf-dist/fonts/type1/public/amsfonts/cm/cm
-r8.pfb></usr/local/texlive/2012/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy1
-0.pfb></usr/local/texlive/2012/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.
-pfb></usr/local/texlive/2012/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.p
-fb>
-Output written on FinalProjver2.pdf (10 pages, 1768819 bytes).
+</usr/local/texlive/2012/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb
+></usr/local/texlive/2012/texmf-dist/fonts/type1/public/amsfonts/cm/cmcsc10.pfb
+></usr/local/texlive/2012/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb>
+</usr/local/texlive/2012/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb><
+/usr/local/texlive/2012/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></u
+sr/local/texlive/2012/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr
+/local/texlive/2012/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/l
+ocal/texlive/2012/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/loca
+l/texlive/2012/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/t
+exlive/2012/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texl
+ive/2012/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texli
+ve/2012/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive
+/2012/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb>
+Output written on FinalProjver2.pdf (11 pages, 1807580 bytes).
 PDF statistics:
- 154 PDF objects out of 1000 (max. 8388607)
- 103 compressed objects within 2 object streams
+ 171 PDF objects out of 1000 (max. 8388607)
+ 115 compressed objects within 2 object streams
  0 named destinations out of 1000 (max. 500000)
- 55 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 65 words of extra memory for PDF output out of 10000 (max. 10000000)
 
