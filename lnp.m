@@ -1,4 +1,4 @@
-function [spikeTrain,nonlinearOutput] = lnp(input, varargin)
+function [spikeTrain,nonlinearOutput,spikeTimestamps,time] = lnp(input, varargin)
 % lnp is a linear-nonlinear-poisson cascade model used to model retinal ganglion neurons
 % INPUTS: time (duration of output), resolution (length of linear filter),
 % point (threshold), slope (slope of threshold), variance, binLength, stimulusType (0,1,or vector), plots 
@@ -32,13 +32,17 @@ nonlinearOutput = p.Results.meanFiringRate*nonlinearOutput/normConstant;
 spikeTrain = poissrnd(length(p.Results.input)*p.Results.binLength*nonlinearOutput);
 
 
-ts = 0:length(spikeTrain)-1;
+time   = linspace(0,p.Results.binLength*length(input),length(nonlinearOutput));
+ts     = 0:length(spikeTrain)-1;
 spikes = ts(find(spikeTrain));
 
+spikeTimestamps = time(spikes);
+
+
 if p.Results.plots ~= 0
-    figure; subplot(4,1,1), plot(p.Results.input,'k'), title('Stimulus'),
-    subplot(4,1,2), plot(linearOutput,'k','LineWidth',1), title('Linear Output'),
-    subplot(4,1,3), plot(nonlinearOutput,'k','LineWidth',1), title('Nonlinear Output'),
+    figure; subplot(4,1,1), plot(time,p.Results.input,'k'), title('Stimulus'),
+    subplot(4,1,2), plot(time,linearOutput,'k','LineWidth',1), title('Linear Output'),
+    subplot(4,1,3), plot(time,nonlinearOutput,'k','LineWidth',1), title('Nonlinear Output'),
     subplot(4,1,4), ...
         for i = 1:length(spikes)
             line([spikes(i),spikes(i)],[0,1],'Color','k');
